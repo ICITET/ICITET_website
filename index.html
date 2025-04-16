@@ -1,0 +1,2820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICITET 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #e74c3c;
+            --accent-color: #f39c12;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --text-color: #333;
+            --text-light: #777;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #002244;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #c0392b;
+        }
+        
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 15px auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .logo-text p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Home Page Styles */
+        .hero {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://i.ibb.co/99sMYyF8/professional-press-conference-background-image-silhouette-microphone-setup-photography-captivating-f.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            text-align: center;
+            padding: 180px 0 100px;
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+        
+        .hero > .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .conference-dates {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        /* Countdown Timer */
+        .countdown-container {
+            margin: 40px auto;
+            max-width: 600px;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 80px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .countdown-item span {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .countdown-item small {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        /* Key Themes */
+        .key-themes {
+            margin: 50px auto;
+            max-width: 800px;
+        }
+        
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .theme-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .theme-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .theme-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+        
+        /* Major Points */
+        .major-points {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px auto;
+            max-width: 800px;
+        }
+        
+        .point-item {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        .point-item i {
+            color: var(--accent-color);
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+        
+        /* Partner Logos */
+        .partner-logos {
+            margin: 60px auto 30px;
+            max-width: 1000px;
+        }
+        
+        .logos-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .logo-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-container:hover {
+            background: white;
+            transform: scale(1.05);
+        }
+        
+        .logos-grid img {
+            height: 60px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+        }
+        
+        /* About Page Styles */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Committees Page Styles */
+        .committee-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .committee-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .committee-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .committee-card ul {
+            list-style: none;
+        }
+        
+        .committee-card ul li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        /* Speakers Page Styles */
+        .keynote-section, .invited-section {
+            margin-bottom: 60px;
+        }
+        
+        .keynote-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .keynote-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        
+        .keynote-card {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .keynote-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .keynote-img {
+            height: 350px;
+            overflow: hidden;
+        }
+        
+        .keynote-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .keynote-card:hover .keynote-img img {
+            transform: scale(1.05);
+        }
+        
+        .keynote-info {
+            padding: 25px;
+        }
+        
+        .keynote-info h3 {
+            color: var(--primary-color);
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        
+        .keynote-info .position {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .keynote-profile {
+            text-align: left;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .keynote-profile p {
+            margin-bottom: 15px;
+        }
+        
+        .invited-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .invited-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .invited-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .invited-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .invited-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .invited-card:hover .invited-img img {
+            transform: scale(1.1);
+        }
+        
+        .invited-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .invited-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .invited-info p {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        /* Registration Page Styles */
+        .registration-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .registration-table th, .registration-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .registration-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .registration-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .registration-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .payment-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .payment-option {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .payment-option h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* Awards Page Styles */
+        .awards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .award-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .award-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .award-header {
+            padding: 20px;
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+        
+        .award-header i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .award-body {
+            padding: 20px;
+        }
+        
+        .award-details {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        
+        .award-details div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        /* Program Page Styles */
+        .program-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .program-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+        
+        .program-tab.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+        }
+        
+        .program-content {
+            display: none;
+        }
+        
+        .program-content.active {
+            display: block;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 100px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-time {
+            position: absolute;
+            left: -100px;
+            top: 0;
+            width: 80px;
+            text-align: right;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            border: 5px solid white;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        /* Contact Page Styles */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            margin-right: 15px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ddd;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 20px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ddd;
+            font-size: 14px;
+        }
+        
+        /* Page Navigation */
+        .page-navigation {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+        
+        .page-navigation a {
+            display: block;
+            width: 12px;
+            height: 12px;
+            margin: 10px 0;
+            background-color: #ccc;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .page-navigation a.active {
+            background-color: var(--secondary-color);
+            transform: scale(1.3);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .venue-content,
+            .cfp-container {
+                flex-direction: column;
+            }
+            
+            .about-image,
+            .venue-map,
+            .cfp-dates {
+                width: 100%;
+                margin-top: 30px;
+            }
+            
+            .keynote-row {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .keynote-img {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+                padding: 12px 15px;
+            }
+            
+            .countdown-item span {
+                font-size: 1.5rem;
+            }
+            
+            .logos-grid {
+                gap: 20px;
+            }
+            
+            .logos-grid img {
+                height: 40px;
+                max-width: 120px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .conference-dates {
+                font-size: 1rem;
+            }
+            
+            .countdown {
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                min-width: 60px;
+                padding: 10px;
+            }
+            
+            .countdown-item span {
+                font-size: 1.3rem;
+            }
+            
+            .themes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .major-points {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .logos-grid {
+                gap: 15px;
+            }
+            
+            .logos-grid img {
+                height: 30px;
+                max-width: 100px;
+            }
+            
+            .payment-options {
+                flex-direction: column;
+            }
+        }
+        
+        /* Page Navigation Styles */
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://i.ibb.co/vCHxMrqM/ICITET-LOGO.png" alt="ICITET Logo">
+                <div class="logo-text">
+                    <h1>ICITET 2025</h1>
+                    
+                </div>
+            </div>
+            <div class="mobile-menu-btn">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="committees">Committees</a></li>
+                    <li><a href="#" class="nav-link" data-page="speakers">Speakers</a></li>
+                    <li><a href="#" class="nav-link" data-page="cfp">Call for Papers</a></li>
+                    <li><a href="#" class="nav-link" data-page="program">Program</a></li>
+                    <li><a href="#" class="nav-link" data-page="awards">Awards</a></li>
+                    <li><a href="#" class="nav-link" data-page="registration">Registration</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Navigation Dots -->
+    <div class="page-navigation">
+        <a href="#" class="page-dot active" data-page="home"></a>
+        <a href="#" class="page-dot" data-page="about"></a>
+        <a href="#" class="page-dot" data-page="committees"></a>
+        <a href="#" class="page-dot" data-page="speakers"></a>
+        <a href="#" class="page-dot" data-page="cfp"></a>
+        <a href="#" class="page-dot" data-page="program"></a>
+        <a href="#" class="page-dot" data-page="awards"></a>
+        <a href="#" class="page-dot" data-page="registration"></a>
+        <a href="#" class="page-dot" data-page="contact"></a>
+    </div>
+
+<!-- Home Page -->
+<section id="home" class="page active">
+    <div class="hero">
+        <div class="container">
+            <h1>International Conference on Innovations and Trends in Engineering Technologies</h1>
+            <p class="conference-dates">May 10-12, 2025 | Virtual Conference</p>
+          <p class="organizer-info">Organised by BRC & Global Institute PN</p>
+
+            <div class="hero-btns">
+                <a href="#" class="btn btn-secondary nav-link" data-page="registration">Register Now</a>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <h3 style="color: white; margin-bottom: 20px; text-align: center;">Conference Starts In:</h3>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <span id="days">00</span>
+                        <small>Days</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <small>Hours</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <small>Minutes</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <small>Seconds</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Conference Themes -->
+            <div class="key-themes">
+                <h3 style="color: white; margin: 40px 0 20px; text-align: center;">Key Conference Themes</h3>
+                <div class="themes-grid">
+                    <div class="theme-item">
+                        <i class="fas fa-robot theme-icon"></i>
+                        <h4>AI & Machine Learning</h4>
+                    </div>
+                    <div class="theme-item">
+                        <i class="fas fa-shield-alt theme-icon"></i>
+                        <h4>Cybersecurity</h4>
+                    </div>
+                    <div class="theme-item">
+                        <i class="fas fa-leaf theme-icon"></i>
+                        <h4>Sustainable Tech</h4>
+                    </div>
+                    <div class="theme-item">
+                        <i class="fas fa-industry theme-icon"></i>
+                        <h4>Industry 4.0</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Major Points -->
+            <div class="major-points">
+                <div class="point-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>150+ Technical Sessions</span>
+                </div>
+                <div class="point-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>50+ Industry Experts</span>
+                </div>
+                <div class="point-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Publication Opportunities</span>
+                </div>
+                <div class="point-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Global Networking</span>
+                </div>
+            </div>
+
+            <!-- About Conference -->
+            <div class="about-section" style="margin-top: 60px;">
+                <h2 class="section-title" style="color: white; text-align: center;">About ICITET 2025</h2>
+                <p style="color: white; max-width: 900px; margin: 20px auto; text-align: justify;">
+                    The International Conference on Innovations and Trends in Engineering Technologies (ICITET) is a premier platform for researchers, academicians, and industry professionals to share their latest research findings and innovations in the field of engineering technologies. The conference aims to foster collaboration, promote knowledge sharing, and showcase cutting-edge technologies.
+                </p>
+
+               
+                <!-- Key Features -->
+                <h3 style="margin: 40px auto 20px; color: white; text-align: center;">Key Features</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h4>Invited Lectures</h4>
+                        <p>Renowned experts sharing insights on latest technologies</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Paper Presentations</h4>
+                        <p>Researchers showcasing their latest findings</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Networking Opportunities</h4>
+                        <p>Collaboration and knowledge sharing among attendees</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Publication Opportunities</h4>
+                        <p>Selected papers published in indexed journals</p>
+                    </div>
+                </div>
+            </div>
+<!-- Partner Logos -->
+<div class="partner-logos">
+    <h3 style="color: white; margin: 40px 0 20px; text-align: center;">Our Partners</h3>
+    <div class="logos-grid">
+        <div class="logo-container"><img src="https://i.ibb.co/Q3QqBbCD/Whats-App-Image-2025-04-16-at-13-21-14-063ea1aa.jpg" alt="Partner Logo 1" border="0"></div>
+        <div class="logo-container"><img src="https://i.ibb.co/hFT0MTnr/Whats-App-Image-2025-04-15-at-00-16-55-252c4fa9.jpg" alt="Partner Logo 2"></div>
+        <div class="logo-container"><img src="https://i.ibb.co/Q7PnNWgw/Whats-App-Image-2025-04-15-at-00-16-54-0aa77eca.jpg" alt="Partner Logo 3"></div>
+        <div class="logo-container"><img src="https://i.ibb.co/tM14DTMs/Whats-App-Image-2025-04-15-at-00-16-53-46557da0.jpg" alt="Partner Logo 4"></div>
+        <div class="logo-container"><img src="https://i.ibb.co/tM9D6FTH/Whats-App-Image-2025-04-15-at-00-16-55-c6138a21.jpg" alt="Partner Logo 5"></div>
+        <div class="logo-container"><img src="https://i.ibb.co/rGXVCvgD/1200px-Scopus-logo-svg.png" alt="Partner Logo 6"></div>
+        <div class="logo-container"><img src="https://i.ibb.co/9m6nqJQ9/Whats-App-Image-2025-04-16-at-12-59-21-46c872a9.jpg" alt="Partner Logo 7"></div>
+        <div class="logo-container"><img src="https://i.ibb.co/PZDGr106/IEEE.jpg" alt="Partner Logo 8"></div>
+        <div class="logo-container"><img src="https://i.ibb.co/NwczsZq/Modern-DNA-Laboratory-Illustration-Free-Logo.png" alt="Partner Logo 9"></div>
+      <div class="logo-container"><img src="https://i.ibb.co/tMGhGBbB/Whats-App-Image-2025-04-16-at-15-57-18-58f99f26.jpg" alt="Partner Logo 10"></div>
+    </div>
+</div>
+          </section>
+
+
+ 
+
+
+   <section id="committees" class="page">
+  <div class="container">
+    <h2 class="section-title">Conference Committees</h2>
+
+    <!-- Organising Committee -->
+    <div class="committee-section">
+      <h3 class="committee-heading">Organising Committee</h3>
+
+      <div class="committee-card">
+        <h4>Program Vice-chair</h4>
+        <p>Dr. Amit, BRC, IN</p>
+        <p>Dr. Ipseeta Nanda, Professor, School of Engineering<br>IILM University, UP, IN</p>
+      </div>
+
+      <div class="committee-card">
+        <h4>Advisory Chairs</h4>
+        <p>Danish Jamil, University of Santiago de Compostela, Spain</p>
+        <p>Swarnamouli Majumdar, Concordia University, Montreal, Canada</p>
+        <p>Dr. Sunita Sharma, University of Georgia, Athens, Georgia</p>
+        <p>Dr. Shobha, MD, BRC</p>
+      </div>
+
+      <div class="committee-card">
+        <h4>Publication Chairs</h4>
+        <p>Dr. Neema, KL, IN</p>
+      </div>
+    </div>
+
+    <!-- Technical Committee -->
+    <div class="committee-section">
+      <h3 class="committee-heading">Technical Committee</h3>
+      <div class="technical-grid">
+        <div class="technical-member"><h4>Haider TH. Salim ALRikabi</h4><p>Wasit University, Iraq</p></div>
+        <div class="technical-member"><h4>Dr. Rishabh Anand</h4><p>Google Senior Vice President</p></div>
+        <div class="technical-member"><h4>Anand Polamarasetti</h4><p>AU, USA</p></div>
+        <div class="technical-member"><h4>Dr. L Ramesh</h4><p>Bharathiar University</p></div>
+        <div class="technical-member"><h4>Prof. (Dr.) Sailesh Suryanarayan Iyer</h4><p>Rai University</p></div>
+        <div class="technical-member"><h4>Dr. Sanjeevkumar Angadi</h4><p>DBATU</p></div>
+        <div class="technical-member"><h4>Dr. Dheeraj Chitara</h4><p>JECRC University</p></div>
+        <div class="technical-member"><h4>Dr. Waseem Ahmad Mir</h4><p>JSPM University Pune</p></div>
+        <div class="technical-member"><h4>Dr. Bishwa Ranjan Das</h4><p>Department of Computer Application, IIMT</p></div>
+        <div class="technical-member"><h4>Dr. Shiva Shankar Reddy</h4><p>JNTU KAKINADA</p></div>
+        <div class="technical-member"><h4>Dr. R. Manikandan</h4><p>SASTRA Deemed University</p></div>
+        <div class="technical-member"><h4>Uvesh Sipai</h4><p>Marwadi University</p></div>
+        <div class="technical-member"><h4>Dr. S. Revathy</h4><p>SRM Institute of Science and Technology</p></div>
+        <div class="technical-member"><h4>Dr. Meenakshi Srivastava</h4><p>Amity University</p></div>
+        <div class="technical-member"><h4>Siddhartha Chatterjee</h4><p>Dept. of CSE</p></div>
+        <div class="technical-member"><h4>Chaithra Shetty</h4><p>Yenepoya University</p></div>
+        <div class="technical-member"><h4>Dr. T. Ananth Kumar</h4><p>IFET College of Engineering</p></div>
+        <div class="technical-member"><h4>Dr. Shamik Tiwari</h4><p>IILM</p></div>
+        <div class="technical-member"><h4>Dr. Biswadip Basu Mallik</h4><p>Institute of Engineering and Management</p></div>
+        <div class="technical-member"><h4>Catherine Rex.S</h4><p>Associate Professor</p></div>
+        <div class="technical-member"><h4>Dr. A. Latha</h4><p>Takshashila University</p></div>
+        <div class="technical-member"><h4>K Rajalakshmi</h4><p>Sri Sairam Institute of Technology</p></div>
+        <div class="technical-member"><h4>Dr. Faritha Banu J</h4><p>SRM University</p></div>
+        <div class="technical-member"><h4>Nandhini PS</h4><p>Anna University</p></div>
+        <div class="technical-member"><h4>Prof. Mohit Tiwari</h4><p>Bharati Vidyapeeth's College of Engineering</p></div>
+        <div class="technical-member"><h4>Krithikaa Venket V S</h4><p>Anna University</p></div>
+        <div class="technical-member"><h4>Rupsha Roy</h4><p>Amity University Kolkata</p></div>
+        <div class="technical-member"><h4>Dr. Pankaj Bhambri</h4><p>GNDEC Ludhiana</p></div>
+        <div class="technical-member"><h4>Prof. Thanuja V</h4><p>Bangalore University</p></div>
+        <div class="technical-member"><h4>B.S Abdur Rahman</h4><p>Crescent Institute of Science and Technology</p></div>
+        <div class="technical-member"><h4>Adline Freeda R</h4><p>KCG College of Technology</p></div>
+        <div class="technical-member"><h4>Swarnamouli Majumdar</h4><p>Concordia University, Canada</p></div>
+        <div class="technical-member"><h4>Dr. Sumathi S</h4><p>Sri Eshwar College of Engineering</p></div>
+        <div class="technical-member"><h4>Abhinav Aggarwal</h4><p>AVTECHFIN</p></div>
+        <div class="technical-member"><h4>Dr. K. JODHIMANI</h4><p>Bharathiar University</p></div>
+        <div class="technical-member"><h4>Dr. Ashwin Dobariya</h4><p>Marwadi University</p></div>
+        <div class="technical-member"><h4>Dr. R Thiagarajan</h4><p>Anna University</p></div>
+        <div class="technical-member"><h4>Prof. (Dr). Mahantesh Kodabagi</h4><p>DPU - Pune</p></div>
+        <div class="technical-member"><h4>Dr. Pooja Nagpal</h4><p>CMS Business School, JAIN University</p></div>
+        <div class="technical-member"><h4>Dr. Mary Saranya J</h4><p>Bharathiar University</p></div>
+        <div class="technical-member"><h4>Mr. Ram Krishna Verma</h4><p>IILM University</p></div>
+        <div class="technical-member"><h4>Dr. K Sathish</h4><p>Assistant Professor SG</p></div>
+        <div class="technical-member"><h4>Dr. A. Lakshmi Priyanka</h4><p>Satya Institute of Tech. & Mgmt</p></div>
+        <div class="technical-member"><h4>Dr. K. Shobana</h4><p>BS Abdur Rahman Crescent Institute</p></div>
+        <div class="technical-member"><h4>Harihararao Mojjada</h4><p>MVGR College of Engineering</p></div>
+        <div class="technical-member"><h4>Veer Pratap Singh Rana</h4><p>IIM Nagpur</p></div>
+        <div class="technical-member"><h4>Dr. R. H. Aswathy</h4><p>Saveetha School of Engineering, SIMATS</p></div>
+        <div class="technical-member"><h4>Dr. Swetha Thiruchanuru</h4><p>Sri Sathya Sai Institute of Higher Learning</p></div>
+        <div class="technical-member"><h4>Dr. P. C. Senthil Mahesh</h4><p>Anna University</p></div>
+        <div class="technical-member"><h4>Dr. Ranju S Kartha</h4><p>Rajagiri School of Engineering and Tech</p></div>
+        <div class="technical-member"><h4>Anand Polamarasetti</h4><p>Andhra University</p></div>
+        <div class="technical-member"><h4>Archana J R</h4><p>VTU</p></div>
+        <div class="technical-member"><h4>Vijaya Kittu Manda</h4><p>PBMEIT</p></div>
+        <div class="technical-member"><h4>Dr. Bhukya Madhu</h4><p>TRR College of Technology</p></div>
+        <div class="technical-member"><h4>Dr. M Kiruthika</h4><p>SRM Institute of Science and Technology</p></div>
+        <div class="technical-member"><h4>Dr. N. Sarulatha</h4><p>SRMIST</p></div>
+        <div class="technical-member"><h4>Kirthivasan S P</h4><p>Bharathiyar University, Coimbatore</p></div>
+        <div class="technical-member"><h4>Dr. Sivabalan Settu</h4><p>International School of Technology and Science</p></div>
+        <div class="technical-member"><h4>Dr. Sabnoor Khatoon</h4><p>BPUT</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+    <!-- Speakers Page -->
+    <section id="speakers" class="page">
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">Speakers</h2>
+                
+                <!-- Keynote Speakers Section -->
+                <div class="keynote-section" style="margin-bottom: 60px;">
+                    <h3 style="color: var(--primary-color); margin: 40px 0 30px; text-align: center; font-size: 28px;">Keynote Speakers</h3>
+                    
+                    <div class="keynote-grid">
+                        <!-- Row 1 -->
+                        <div class="keynote-row">
+                            <!-- Dr. Rahul Vadiseety -->
+                            <div class="keynote-card">
+                                <div class="keynote-img">
+                                    <img src="https://i.ibb.co/CptRrpXm/Whats-App-Image-2025-04-14-at-19-09-18-c25a2144.jpg" alt="Dr. Rahul Vadiseety">
+                                </div>
+                                <div class="keynote-info">
+                                    <h3>Dr. Rahul Vadiseety</h3>
+                                    <p class="position">Sr Software Engineer at US BANK, USA</p>
+                                    <div class="keynote-profile">
+                                        <p>Rahul Vadisetty is a passionate and dedicated AI researcher and technologist with over a decade of experience in AI, machine learning, cybersecurity, and cloud computing.</p>
+                                        <p>His contributions extend to smart governance, IoT-based intrusion detection, and AI-driven healthcare diagnostics. His pioneering work in AI-Based Smart Governance has provided governments with AI-driven frameworks to enhance decision-making.</p>
+                                        <p>His expertise includes developing machine learning algorithms for cybersecurity, deep learning, cloud computing, and AI-driven governance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Dr. Ipseeta Nanda -->
+                            <div class="keynote-card">
+                                <div class="keynote-img">
+                                    <img src="https://i.ibb.co/q3Kbh6m7/Ipshita-nanda.jpg" alt="Dr. Ipseeta Nanda">
+                                </div>
+                                <div class="keynote-info">
+                                    <h3>Dr. Ipseeta Nanda</h3>
+                                     <p class="position">Prof. (Dr) Ipseeta Nanda
+Professor, School of Engineering
+IILM University, Greater Noida
+</p>
+                                    <div class="keynote-profile">
+                                        <p>With 19 years of experience in teaching, research, and administration (Dean), Dr. Nanda has guided PhD students and participated in prestigious conferences as plenary speaker and guest of honor.</p>
+                                        <p>She was honored with the IIWA-2020 award for Best Women Performer of the Year and accolades from South-Central Railway Women Union.</p>
+                                        <p>Former Founder Dean of Faculty of IT at GNS University and Director of Curriculum Design at Innogurus, she specializes in IoT and has contributed as reviewer for Wiley IoT books.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Row 2 -->
+                        <div class="keynote-row">
+                            <!-- Dr. Rath Satyasambit -->
+                            <div class="keynote-card">
+                                <div class="keynote-img">
+                                    <img src="https://i.ibb.co/yF804K8c/PG-Robotics-Automation.png" alt="Dr. Rath Satyasambit">
+                                </div>
+                                <div class="keynote-info">
+                                    <h3>Dr. Rath Satyasambit</h3>
+                                    <p class="position">Research Technician, RIKEN Center for Brain Science, Japan</p>
+                                    <div class="keynote-profile">
+                                        <p>Works with neural data from rat's brain using computational methods and dimensionality reduction techniques.</p>
+                                        <p>Developed novel bRNN decoders for neural calcium signals during emotional memory tasks.</p>
+                                        <p>Holds a PhD in Artificial Intelligence from Tokyo Institute of Technology and Master's in Cognitive Neuroscience from National Central University, Taiwan.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Gaurav Tripathi -->
+                            <div class="keynote-card">
+                                <div class="keynote-img">
+                                    <img src="https://i.ibb.co/BVPm1xVH/Gaurav-tripathi.jpg" alt="Gaurav Tripathi">
+                                </div>
+                                <div class="keynote-info">
+                                    <h3>Gaurav Tripathi</h3>
+                                    <p class="position">Co-Founder & Group CTO, Innoplexus, Germany</p>
+                                    <div class="keynote-profile">
+                                        <p>Serial entrepreneur with 19+ years experience in AI startups. Built IP portfolio of 185+ patents.</p>
+                                        <p>Recipient of Business World 40 under 40 and Warrior of Change awards.</p>
+                                        <p>Known as "German AI champion in Life Sciences" working with top 30 Pharma companies globally.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Invited Speakers Section -->
+                <div class="invited-section">
+                    <h3 style="color: var(--primary-color); margin: 60px 0 30px; text-align: center; font-size: 28px;">Invited Speakers</h3>
+                    
+                    <div class="invited-grid">
+                        <!-- Dr. Shamik Tiwari -->
+                        <div class="invited-card">
+                            <div class="invited-img">
+                                <img src="https://i.ibb.co/pjtfLCFF/dr-shamik-tiwari.jpg" alt="Dr. Shamik Tiwari">
+                            </div>
+                            <div class="invited-info">
+                                <h3>Dr. Shamik Tiwari</h3>
+                                <p>Founding Dean, IILM University, Gurugram</p>
+                                <p>AI & Data Science Expert</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Dr. Sureshkumar Markanday Subramanian -->
+                        <div class="invited-card">
+                            <div class="invited-img">
+                                <img src="https://i.ibb.co/bgfhYdgp/dr-suresh-kumar-markandey.jpg" alt="Dr. Sureshkumar">
+                            </div>
+                            <div class="invited-info">
+                                <h3>Dr. Sureshkumar Markanday Subramanian</h3>
+                                <p>Associate Professor - Chemistry at ACE Engineering College, Ankushapur, Ghatkesar, Hyderabad</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Ms. Naeema Nazar -->
+                        <div class="invited-card">
+                            <div class="invited-img">
+                                <img src="https://i.ibb.co/btyR9HW/Naaema-nazar.jpg" alt="Ms. Naeema Nazar">
+                            </div>
+                            <div class="invited-info">
+                                <h3>Ms. Naeema Nazar</h3>
+                              <p>Assistant Professor and IEEE Student Branch Counselor at VISAT Engineering College, Ernakulam, Kerala, India.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Dr. S. Balambigai -->
+                        <div class="invited-card">
+                            <div class="invited-img">
+                                <img src="https://i.ibb.co/m5C6SkX8/S-balambigai.jpg" alt="Dr. S. Balambigai">
+                            </div>
+                            <div class="invited-info">
+                                <h3>Dr. S. Balambigai</h3>
+                                <p>Expert in 
+Electronics and Communication, 
+Applied Electronics and Bio Medical 
+Engineering</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section id="cfp" class="page">
+  <div class="container">
+    <div class="section">
+      <h2 class="section-title">Call for Papers</h2>
+      <div class="cfp-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+        <div class="cfp-text" style="flex: 2; min-width: 300px;">
+          <!-- Hero Section -->
+          <div class="cfp-header" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 30px; border-radius: 8px; margin-bottom: 30px;">
+            <h2 style="color: white; margin-bottom: 15px;">Shape the Future of Engineering Technologies</h2>
+            <p>Join 500+ researchers and industry leaders at ICITET 2025 to showcase your innovations and gain international recognition.</p>
+            <div style="margin-top: 20px; display: flex; gap: 15px; flex-wrap: wrap;">
+              <a href="https://forms.gle/qjLEAdThKKCtcZf88" class="btn btn-secondary" target="_blank">Submit Your Abstract</a>
+              <a href="https://drive.google.com/file/d/16xGCmEZTanc3qV3sQRtoq9iD80gR0-YB/view?usp=share_link" class="btn" style="background: white; color: var(--primary-color);" target="_blank">Download Brochure</a>
+            </div>
+          </div>
+
+          <!-- Benefits -->
+          <div class="benefits-section" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
+            <div class="benefit-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+              <i class="fas fa-trophy" style="font-size: 2rem; color: var(--accent-color); margin-bottom: 15px;"></i>
+              <h4>Recognition & Awards</h4>
+              <p>Outstanding papers will receive awards and certificates</p>
+            </div>
+            <div class="benefit-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+              <i class="fas fa-book" style="font-size: 2rem; color: var(--accent-color); margin-bottom: 15px;"></i>
+              <h4>Quality Publication</h4>
+              <p>Selected papers published in Scopus/WoS indexed proceedings</p>
+            </div>
+            <div class="benefit-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+              <i class="fas fa-globe" style="font-size: 2rem; color: var(--accent-color); margin-bottom: 15px;"></i>
+              <h4>Global Exposure</h4>
+              <p>Present to an international audience of experts</p>
+            </div>
+          </div>
+
+          <!-- Why Submit -->
+          <h3 style="margin: 40px 0 20px; color: var(--primary-color);">Why Present at ICITET 2025?</h3>
+          <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin-bottom: 30px;">
+            <ul style="columns: 2; list-style-position: inside;">
+              <li>Gain valuable feedback from international experts</li>
+              <li>Enhance your academic profile and visibility</li>
+              <li>Opportunity for Scopus/WoS indexed publication</li>
+              <li>Network with leading researchers and practitioners</li>
+              <li>Showcase your research to potential collaborators</li>
+              <li>Participate in interdisciplinary discussions</li>
+              <li>Opportunity to win best paper awards</li>
+              <li>Contribute to advancing engineering knowledge</li>
+            </ul>
+          </div>
+
+          <!-- Topics of Interest -->
+          <h3 style="margin: 30px 0 15px; color: var(--primary-color);">Conference Tracks</h3>
+          <div style="background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); line-height: 1.7;">
+            <p><strong>The conference welcomes original contributions in all areas of engineering and technology, including but not limited to:</strong></p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+              <div>
+                <h4 style="color: var(--secondary-color);">Computing & AI</h4>
+                <ul>
+                  <li>Artificial Intelligence & Machine Learning</li>
+                  <li>Data Science & Big Data Analytics</li>
+                  <li>Cloud Computing & Edge Computing</li>
+                  <li>Computer Vision & Pattern Recognition</li>
+                  <li>Natural Language Processing</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 style="color: var(--secondary-color);">Electronics & Communication</h4>
+                <ul>
+                  <li>5G/6G Communication Systems</li>
+                  <li>IoT and Cyber-Physical Systems</li>
+                  <li>Embedded Systems & VLSI</li>
+                  <li>Signal & Image Processing</li>
+                  <li>Wireless Sensor Networks</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 style="color: var(--secondary-color);">Energy & Sustainability</h4>
+                <ul>
+                  <li>Renewable Energy Technologies</li>
+                  <li>Smart Grid & Power Systems</li>
+                  <li>Energy Storage Solutions</li>
+                  <li>Green Computing</li>
+                  <li>Sustainable Infrastructure</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 style="color: var(--secondary-color);">Advanced Engineering</h4>
+                <ul>
+                  <li>Robotics & Automation</li>
+                  <li>Nanotechnology & Advanced Materials</li>
+                  <li>Additive Manufacturing</li>
+                  <li>Mechatronics & Control Systems</li>
+                  <li>Biomedical Engineering</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 style="color: var(--secondary-color);">Security & Applications</h4>
+                <ul>
+                  <li>Cybersecurity & Cryptography</li>
+                  <li>Blockchain Technologies</li>
+                  <li>Industry 4.0 Applications</li>
+                  <li>Smart Cities & Urban Technologies</li>
+                  <li>Agricultural Technologies</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 style="color: var(--secondary-color);">Education & Society</h4>
+                <ul>
+                  <li>Engineering Education Innovations</li>
+                  <li>Technology for Social Impact</li>
+                  <li>Entrepreneurship in Engineering</li>
+                  <li>Ethics in Technology</li>
+                  <li>Digital Transformation</li>
+                </ul>
+              </div>
+            </div>
+            
+            <p style="margin-top: 20px; font-style: italic;">We also welcome interdisciplinary research and emerging areas not listed above.</p>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE: Key Dates -->
+        <div class="cfp-dates" style="flex: 1; min-width: 250px;">
+          <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); position: sticky; top: 100px;">
+            <h3 style="color: var(--primary-color); margin-bottom: 25px; text-align: center; position: relative;">
+              <span style="background: white; padding: 0 15px; position: relative; z-index: 1;">Key Dates</span>
+              <div style="height: 1px; background: #eee; position: absolute; top: 50%; left: 0; right: 0; z-index: 0;"></div>
+            </h3>
+
+            <div class="timeline" style="position: relative; padding-left: 30px;">
+              <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--secondary-color);"></div>
+
+              <!-- Date Items -->
+              <div class="date-item" style="position: relative; margin-bottom: 25px;">
+                <div style="position: absolute; left: -38px; top: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--secondary-color); border: 5px solid white;"></div>
+                <div style="font-weight: bold; color: var(--secondary-color);">Abstract Submission</div>
+                <div>24th April 2025</div>
+                <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">Submit 200–300 word abstract</div>
+              </div>
+
+              <div class="date-item" style="position: relative; margin-bottom: 25px;">
+                <div style="position: absolute; left: -38px; top: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--secondary-color); border: 5px solid white;"></div>
+                <div style="font-weight: bold; color: var(--secondary-color);">Acceptance Notification</div>
+                <div>26th April 2025</div>
+                <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">Review within 48 hours</div>
+              </div>
+
+              <div class="date-item" style="position: relative; margin-bottom: 25px;">
+                <div style="position: absolute; left: -38px; top: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--accent-color); border: 5px solid white;"></div>
+                <div style="font-weight: bold; color: var(--accent-color);">Early Bird Registration</div>
+                <div>5th May 2025</div>
+                <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">Save $50 with early registration</div>
+              </div>
+
+              <div class="date-item" style="position: relative; margin-bottom: 25px;">
+                <div style="position: absolute; left: -38px; top: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--secondary-color); border: 5px solid white;"></div>
+                <div style="font-weight: bold; color: var(--secondary-color);">Full Paper Submission</div>
+                <div>3rd April 2025</div>
+                <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">6–8 pages, IEEE format</div>
+              </div>
+
+              <div class="date-item" style="position: relative; margin-bottom: 25px;">
+                <div style="position: absolute; left: -38px; top: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--secondary-color); border: 5px solid white;"></div>
+                <div style="font-weight: bold; color: var(--secondary-color);">Conference Dates</div>
+                <div>10th–12th May 2025</div>
+                <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">Virtual event with live Q&A</div>
+              </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+              <a href="https://forms.gle/qjLEAdThKKCtcZf88" class="btn btn-secondary" style="display: block; margin-bottom: 15px;" target="_blank">Submit Abstract Now</a>
+              <a href="https://drive.google.com/file/d/1z0S_DKKuJLos_A_qPHPpW8xfOWL6Vbb9/view?usp=share_link" style="color: var(--primary-color); font-size: 0.9rem;">Download Submission Guidelines</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- Program Page -->
+    <section id="program" class="page">
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">Conference Program</h2>
+                
+                <div style="max-width: 800px; margin: 0 auto 40px; text-align: center;">
+                    <p>ICITET 2025 offers a rich program featuring keynote speeches, technical sessions, workshops, and networking opportunities. Explore the schedule below and plan your conference experience.</p>
+                </div>
+                
+                <div class="program-tabs" style="display: flex; justify-content: center; margin-bottom: 30px; border-bottom: 1px solid #eee;">
+                    <div class="program-tab active" data-day="day1" style="padding: 10px 20px; cursor: pointer; border-bottom: 3px solid var(--secondary-color); font-weight: bold;">Day 1 - May 10</div>
+                    <div class="program-tab" data-day="day2" style="padding: 10px 20px; cursor: pointer;">Day 2 - May 11</div>
+                    <div class="program-tab" data-day="day3" style="padding: 10px 20px; cursor: pointer;">Day 3 - May 12</div>
+                </div>
+                
+                <div class="program-highlights" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 40px 0;">
+                    <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center;">
+                        <i class="fas fa-microphone" style="font-size: 2rem; color: var(--accent-color); margin-bottom: 15px;"></i>
+                        <h4 style="margin-bottom: 10px;"> Keynote Speeches</h4>
+                        <p>From world-renowned experts</p>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center;">
+                        <i class="fas fa-chalkboard-teacher" style="font-size: 2rem; color: var(--accent-color); margin-bottom: 15px;"></i>
+                        <h4 style="margin-bottom: 10px;"> Technical Sessions</h4>
+                        <p>Cutting-edge research presentations</p>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center;">
+                        <i class="fas fa-users" style="font-size: 2rem; color: var(--accent-color); margin-bottom: 15px;"></i>
+                        <h4 style="margin-bottom: 10px;">panel discussion</h4>
+                        <p>Connect with peers and experts</p>
+                    </div>
+                    
+                </div>
+                
+                <!-- Day 1 Program -->
+                <div id="day1" class="program-content active">
+                    <h3 style="text-align: center; margin: 40px 0 30px; color: var(--primary-color);">Day 1: May 10, 2025 - Opening & Keynotes</h3>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">09:00 - 10:00</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Inaugural Ceremony</h3>
+                                <p>Welcome and opening remarks by the conference chair and dignitaries</p>
+                                <div style="display: flex; align-items: center;">
+                                   
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:00 - 11:00</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Keynote Speech 1</h3>
+                                <p style="margin-bottom: 10px; font-weight: bold; color: var(--secondary-color);">"Advancements in AI for Engineering Applications"</p>
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <img src="https://i.ibb.co/yF804K8c/PG-Robotics-Automation.png" alt="Dr. Rath Satyasambit" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; object-fit: cover;">
+                                    <div>
+                                        <h4 style="margin: 0; font-size: 1rem;">Dr. Rath Satyasambit</h4>
+                                        <p style="margin: 5px 0 0; font-size: 0.9rem; color: var(--text-light);">Research Technician, RIKEN Center for Brain Science, Japan</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">11:30 - 13:00</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Technical Session 1A: AI Applications</h3>
+                                <div style="margin-bottom: 15px;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #eee;">
+                                        <span>11:30 - 11:50</span>
+                                        <span>"Deep Learning for Predictive Maintenance"</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #eee;">
+                                        <span>11:50 - 12:10</span>
+                                        <span>"Computer Vision in Manufacturing"</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>12:10 - 12:30</span>
+                                        <span>"NLP for Technical Documentation"</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                   
+                                    <i class="fas fa-user-tie" style="margin-left: 20px; margin-right: 10px; color: var(--accent-color);"></i>
+                                    <span>Session Chair: Dr. Shamik Tiwari</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">14:00 - 15:30</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Workshop: Hands-on AI</h3>
+                                <p style="margin-bottom: 15px;">Practical session on implementing machine learning models for engineering applications</p>
+                                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                    <i class="fas fa-user-tie" style="margin-right: 10px; color: var(--accent-color);"></i>
+                                    <span>Facilitator: Dr. Rahul Vadiseety</span>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                   
+                                    <i class="fas fa-laptop" style="margin-left: 20px; margin-right: 10px; color: var(--accent-color);"></i>
+                                    <span>Bring your laptop</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Day 2 Program -->
+                <div id="day2" class="program-content">
+                    <h3 style="text-align: center; margin: 40px 0 30px; color: var(--primary-color);">Day 2: May 11, 2025 - Technical Sessions & Panel Discussions</h3>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">09:30 - 10:30</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Keynote Speech 2</h3>
+                                <p style="margin-bottom: 10px; font-weight: bold; color: var(--secondary-color);">"Sustainable Engineering Solutions for Smart Cities"</p>
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <img src="https://i.ibb.co/q3Kbh6m7/Ipshita-nanda.jpg" alt="Dr. Ipseeta Nanda" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; object-fit: cover;">
+                                    <div>
+                                        <h4 style="margin: 0; font-size: 1rem;">Dr. Ipseeta Nanda</h4>
+                                        <p style="margin: 5px 0 0; font-size: 0.9rem; color: var(--text-light);">Professor, School of Engineering
+IILM University, Greater Noida
+UP, India</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                   
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">11:00 - 12:30</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Technical Session 2A: Sustainable Technologies</h3>
+                                <div style="margin-bottom: 15px;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #eee;">
+                                        <span>11:00 - 11:20</span>
+                                        <span>"Renewable Energy Integration"</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #eee;">
+                                        <span>11:20 - 11:40</span>
+                                        <span>"Green Building Technologies"</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>11:40 - 12:00</span>
+                                        <span>"Waste Management Solutions"</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                   
+                                    <i class="fas fa-user-tie" style="margin-left: 20px; margin-right: 10px; color: var(--accent-color);"></i>
+                                    <span>Session Chair: Dr. S. Balambigai</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">14:00 - 15:30</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Panel Discussion: "Future of Industry 4.0"</h3>
+                                <p style="margin-bottom: 15px;">Experts discuss challenges and opportunities in implementing Industry 4.0 technologies</p>
+                                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                    <i class="fas fa-users" style="margin-right: 10px; color: var(--accent-color);"></i>
+                                    <span>Moderator: Gaurav Tripathi</span>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                   
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">16:00 - 17:30</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Poster Session</h3>
+                                <p style="margin-bottom: 15px;">Interactive session with authors presenting their research posters</p>
+                                <div style="display: flex; align-items: center;">
+                                   
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Day 3 Program -->
+                <div id="day3" class="program-content">
+                    <h3 style="text-align: center; margin: 40px 0 30px; color: var(--primary-color);">Day 3: May 12, 2025 - Closing & Awards</h3>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">09:30 - 10:30</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Keynote Speech 3</h3>
+                                <p style="margin-bottom: 10px; font-weight: bold; color: var(--secondary-color);">"Cybersecurity Challenges in the Digital Age"</p>
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <img src="https://i.ibb.co/CptRrpXm/Whats-App-Image-2025-04-14-at-19-09-18-c25a2144.jpg" alt="Dr. Rahul Vadiseety" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; object-fit: cover;">
+                                    <div>
+                                        <h4 style="margin: 0; font-size: 1rem;">Dr. Rahul Vadiseety</h4>
+                                        <p style="margin: 5px 0 0; font-size: 0.9rem; color: var(--text-light);">Sr Software Engineer at US BANK, USA</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                   
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">11:00 - 12:30</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Technical Session 3A: Cybersecurity</h3>
+                                <div style="margin-bottom: 15px;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #eee;">
+                                        <span>11:00 - 11:20</span>
+                                        <span>"AI in Cybersecurity"</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #eee;">
+                                        <span>11:20 - 11:40</span>
+                                        <span>"Blockchain Security"</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>11:40 - 12:00</span>
+                                        <span>"IoT Security Challenges"</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                        
+                                   
+                                    <i class="fas fa-user-tie" style="margin-left: 20px; margin-right: 10px; color: var(--accent-color);"></i>
+                                    <span>Session Chair: Dr. Sureshkumar Markanday</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">14:00 - 15:30</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Panel Discussion: "Emerging Trends in Engineering Education"</h3>
+                                <p style="margin-bottom: 15px;">Discussion on innovative teaching methods and technology-enhanced learning</p>
+                                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                    <i class="fas fa-users" style="margin-right: 10px; color: var(--accent-color);"></i>
+                                    <span>Moderator: Dr. Ipseeta Nanda</span>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                   
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-time">16:00 - 17:30</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Valedictory Ceremony</h3>
+                                <p style="margin-bottom: 15px;">Closing remarks and awards ceremony</p>
+                                <div style="display: flex; align-items: center;">
+                                    
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 50px;">
+                    <a href="#" class="btn" style="margin-right: 15px;">
+                        <i class="fas fa-download" style="margin-right: 8px;"></i> Download Full Program
+                    </a>
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fas fa-calendar-alt" style="margin-right: 8px;"></i> Add to Calendar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Page -->
+    <section id="awards" class="page">
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">Awards & Recognition</h2>
+                <div style="max-width: 800px; margin: 0 auto 40px; text-align: center;">
+                    <p>ICITET 2025 celebrates excellence in engineering research and innovation through a comprehensive awards program. Winners receive certificates, prizes, and publication opportunities.</p>
+                </div>
+                
+                <div class="awards-intro" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 40px; border-radius: 8px; margin-bottom: 50px; text-align: center;">
+                    <h3 style="color: white; margin-bottom: 20px;">Why Participate in ICITET Awards?</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 30px;">
+                        <div>
+                            <i class="fas fa-trophy" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
+                            <h4 style="margin-bottom: 10px;">Recognition</h4>
+                            <p>Gain visibility in the engineering community</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-medal" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
+                            <h4 style="margin-bottom: 10px;">Prizes</h4>
+                            <p>Certificates and mementos for winners</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-book-open" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
+                            <h4 style="margin-bottom: 10px;">Publication</h4>
+                            <p> Winners will be published in Official website and conference proceedings</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 40px;">Award Categories</h3>
+                <div class="awards-container">
+                    <!-- Award 1 -->
+                    <div class="award-card">
+                        <div class="award-header">
+                            <i class="fas fa-award"></i>
+                            <h4>Best Paper Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes the most outstanding paper submitted to the conference.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>All accepted papers</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 2 -->
+                    <div class="award-card">
+                        <div class="award-header" style="background: var(--secondary-color);">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <h4>Best Presentation Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes the most engaging and effective presentation at the conference.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>All presenters</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 3 -->
+                    <div class="award-card">
+                        <div class="award-header" style="background: var(--accent-color);">
+                            <i class="fas fa-user-graduate"></i>
+                            <h4>Best Student Paper Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes exceptional research conducted by student authors.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>Student-led research</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 4 -->
+                    <div class="award-card">
+                        <div class="award-header">
+                            <i class="fas fa-image"></i>
+                            <h4>Best Poster Presentation Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes the best poster presentation at the conference.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>All poster presenters</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 5 -->
+                    <div class="award-card">
+                        <div class="award-header" style="background: var(--secondary-color);">
+                            <i class="fas fa-comment"></i>
+                            <h4>Best Oral Presentation Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes the best oral presentation at the conference.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>All oral presenters</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 6 -->
+                    <div class="award-card">
+                        <div class="award-header" style="background: var(--accent-color);">
+                            <i class="fas fa-lightbulb"></i>
+                            <h4>Innovative Solution Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes the most innovative solution or approach presented at the conference.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>All presentations</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 7 -->
+                    <div class="award-card">
+                        <div class="award-header">
+                            <i class="fas fa-flask"></i>
+                            <h4>Best Research Methodology Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes the paper with the most rigorous and innovative research methodology.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>All accepted papers</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 8 -->
+                    <div class="award-card">
+                        <div class="award-header" style="background: var(--secondary-color);">
+                            <i class="fas fa-star"></i>
+                            <h4>Excellence in Innovation Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes outstanding innovation in engineering technologies.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>All participants</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 9 -->
+                    <div class="award-card">
+                        <div class="award-header" style="background: var(--accent-color);">
+                            <i class="fas fa-users"></i>
+                            <h4>Best Collaborative Research Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes outstanding collaborative research efforts.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>Multi-author papers</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 10 -->
+                    <div class="award-card">
+                        <div class="award-header">
+                            <i class="fas fa-industry"></i>
+                            <h4>Industry Application Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes research with the highest potential for industrial application.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>Applied research papers</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 11 -->
+                    <div class="award-card">
+                        <div class="award-header" style="background: var(--secondary-color);">
+                            <i class="fas fa-search"></i>
+                            <h4>Outstanding Research Contribution Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes significant contributions to the field of engineering technologies.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>All participants</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 12 -->
+                    <div class="award-card">
+                        <div class="award-header" style="background: var(--accent-color);">
+                            <i class="fas fa-rocket"></i>
+                            <h4>Best Emerging Technology Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes the most promising emerging technology presented at the conference.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>All participants</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 13 -->
+                    <div class="award-card">
+                        <div class="award-header">
+                            <i class="fas fa-cogs"></i>
+                            <h4>Excellence in Engineering Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes overall excellence in engineering research and presentation.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>All participants</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 14 -->
+                    <div class="award-card">
+                        <div class="award-header" style="background: var(--secondary-color);">
+                            <i class="fas fa-book"></i>
+                            <h4>Best Case Study Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes the best case study presented at the conference.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>Case study submissions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 15 -->
+                    <div class="award-card">
+                        <div class="award-header" style="background: var(--accent-color);">
+                            <i class="fas fa-leaf"></i>
+                            <h4>Innovation in Sustainability Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes innovative solutions in sustainable engineering.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>Sustainability-focused research</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 16 -->
+                    <div class="award-card">
+                        <div class="award-header">
+                            <i class="fas fa-laptop-code"></i>
+                            <h4>Best Use of Technology Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes the most effective use of technology in research.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>All participants</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 17 -->
+                    <div class="award-card">
+                        <div class="award-header" style="background: var(--secondary-color);">
+                            <i class="fas fa-bullseye"></i>
+                            <h4>Most Impactful Research Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes research with the highest potential impact on the field.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>All participants</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 18 -->
+                    <div class="award-card">
+                        <div class="award-header" style="background: var(--accent-color);">
+                            <i class="fas fa-project-diagram"></i>
+                            <h4>Best Interdisciplinary Research Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes outstanding interdisciplinary research.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>Interdisciplinary research</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 19 -->
+                    <div class="award-card">
+                        <div class="award-header">
+                            <i class="fas fa-user-astronaut"></i>
+                            <h4>Young Innovator Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes outstanding innovation by young researchers (under 30).</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>Researchers under 30</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 20 -->
+                    <div class="award-card">
+                        <div class="award-header" style="background: var(--secondary-color);">
+                            <i class="fas fa-brain"></i>
+                            <h4>Best Application of AI/ML Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes the best application of AI/ML in engineering.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>AI/ML applications</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 21 -->
+                    <div class="award-card">
+                        <div class="award-header" style="background: var(--accent-color);">
+                            <i class="fas fa-medal"></i>
+                            <h4>Outstanding Achievement in Engineering Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes outstanding overall achievement in engineering research.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>All participants</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 22 -->
+                    <div class="award-card">
+                        <div class="award-header">
+                            <i class="fas fa-handshake"></i>
+                            <h4>Best Research-Industry Collaboration Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes outstanding collaboration between academia and industry.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>Industry-academia collaborations</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 23 -->
+                    <div class="award-card">
+                        <div class="award-header" style="background: var(--secondary-color);">
+                            <i class="fas fa-pencil-ruler"></i>
+                            <h4>Excellence in Design Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes excellence in engineering design.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>Design-focused research</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 24 -->
+                    <div class="award-card">
+                        <div class="award-header" style="background: var(--accent-color);">
+                            <i class="fas fa-cube"></i>
+                            <h4>Best Prototyping Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes excellence in prototyping and implementation.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>Prototype demonstrations</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 25 -->
+                    <div class="award-card">
+                        <div class="award-header">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <h4>Innovative Problem-Solving Award</h4>
+                        </div>
+                        <div class="award-body">
+                            <p>Recognizes innovative approaches to solving engineering problems.</p>
+                            <div class="award-details">
+                                <div>
+                                    <span>Prize:</span>
+                                    <span>Certificate + Memento</span>
+                                </div>
+                                <div>
+                                    <span>Eligibility:</span>
+                                    <span>All participants</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="judging-section" style="margin-top: 60px;">
+                    <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 30px;">Award Selection Process</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;">
+                        <div style="text-align: center;">
+                            <div style="background: var(--primary-color); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.5rem;">1</div>
+                            <h4 style="margin-bottom: 10px;">Submission</h4>
+                            <p>Authors indicate award eligibility during paper submission</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="background: var(--primary-color); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.5rem;">2</div>
+                            <h4 style="margin-bottom: 10px;">Review</h4>
+                            <p>Technical committee evaluates based on originality, impact, and presentation</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="background: var(--primary-color); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.5rem;">3</div>
+                            <h4 style="margin-bottom: 10px;">Selection</h4>
+                            <p>Award committee selects winners based on review scores</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="background: var(--primary-color); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.5rem;">4</div>
+                            <h4 style="margin-bottom: 10px;">Announcement</h4>
+                            <p>Winners announced during valedictory ceremony</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Registration Page -->
+<section id="registration" class="page">
+    <div class="container">
+        <div class="section">
+            <h2 class="section-title">Registration</h2>
+            <div style="max-width: 800px; margin: 0 auto 40px; text-align: center;">
+                <p>Register now to secure your spot at ICITET 2025. Early bird registration offers discounted rates.</p>
+            </div>
+            
+            <div class="registration-container">
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--primary-color);">Registration Guide</h3>
+                <p>Thank you for your interest in registering for the ICITET 2025 conference. Please find below the registration details and guidelines.</p>
+                
+                <h3 style="margin: 30px 0 15px; color: var(--primary-color);">Registration Categories</h3>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li><strong>Author Registration:</strong> For authors who have submitted papers to the conference.</li>
+                    <li><strong>Delegate Registration:</strong> For participants who want to attend the conference without submitting a paper.</li>
+                    <li><strong>Student Registration:</strong> For students who want to attend the conference.</li>
+                </ul>
+                
+                <h3 style="margin: 30px 0 15px; color: var(--primary-color);">Registration Fees</h3>
+                <table class="registration-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Early Bird (Before 23 April 2025)</th>
+                            <th>Regular Registration (Before 1 May 2025)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Faculty/Academia/Industry (Presentation & Publication)</td>
+                            <td>INR 1999</td>
+                            <td>INR 3499</td>
+                        </tr>
+                        <tr>
+                            <td>UG, PG Students/Research scholars (Presentation & Publication)</td>
+                            <td>INR 799</td>
+                            <td>INR 1799</td>
+                        </tr>
+                        <tr>
+                            <td>Attendee (Faculty/Academia/Industry)</td>
+                            <td>INR 999</td>
+                            <td>INR 1999</td>
+                        </tr>
+                        <tr>
+                            <td>Attendee (UG, PG Students/Research scholars)</td>
+                            <td>INR 499</td>
+                            <td>INR 999</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 style="margin: 30px 0 15px; color: var(--primary-color);">What's Included</h3>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+                    <ul style="columns: 2; list-style-position: inside;">
+                        <li style="margin-bottom: 10px;">Access to all conference sessions</li>
+                        <li style="margin-bottom: 10px;">Conference proceedings (digital)</li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Google Form Registration Link Button -->
+                <div style="text-align: center; margin: 30px 0;">
+                    <a href="https://forms.gle/xRds3yZ8ZFEobFdj9" target="_blank" class="btn" style="background-color: var(--primary-color); color: white; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold;">
+                        Register via Google Form
+                    </a>
+                </div>
+
+                <h3 style="margin: 30px 0 15px; color: var(--primary-color);">Payment Options</h3>
+                <div class="payment-options">
+                    <div class="payment-option">
+                        <i class="fas fa-user-tie" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 15px;"></i>
+                        <h4>Faculty/Industry Registration</h4>
+                        <p>For professors, researchers, and industry professionals</p>
+                        <a href="https://rzp.io/rzp/ICITET2025F" class="btn" target="_blank" style="margin-top: 15px;">Pay Now</a>
+                    </div>
+                    <div class="payment-option">
+                        <i class="fas fa-user-graduate" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 15px;"></i>
+                        <h4>Student Registration</h4>
+                        <p>For undergraduate, postgraduate and PhD students</p>
+                        <a href="https://rzp.io/rzp/ICITET2025S" class="btn" target="_blank" style="margin-top: 15px;">Pay Now</a>
+                    </div>
+                    <div class="payment-option">
+                        <i class="fas fa-users" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 15px;"></i>
+                        <h4>Attendee Registration</h4>
+                        <p>For all attendees without paper submission</p>
+                        <a href="https://rzp.io/rzp/qO65ida" class="btn" target="_blank" style="margin-top: 15px;">Pay Now</a>
+                    </div>
+                </div>
+                
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 30px;">
+                    <h4 style="margin-bottom: 15px; color: var(--primary-color);">Cancellation Policy</h4>
+                    <p>Registration cancellations must be notified in writing by email to the conference secretariat. Cancellations received:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Before April 23rd, 2025: 50% refund</li>
+                        <li>After April 23rd, 2025: No refund</li>
+                    </ul>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <p>For any registration queries, please contact us at <a href="mailto:icitet2025@gmail.com">icitet2025@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">Contact Us</h2>
+                <div style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
+                    <p>We would love to hear from you! If you have any questions, concerns, or feedback, please don't hesitate to contact us.</p>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Conference Secretariat</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <p><strong>Email:</strong></p>
+                                <p>icitet2025@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <p><strong>Phone:</strong></p>
+                                <p>+91 8867394159</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <p><strong>Address:</strong></p>
+                                <p>ICITET , BANGALORE , KARNATAKA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="contact-name">Name</label>
+                                <input type="text" id="contact-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email</label>
+                                <input type="email" id="contact-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-subject">Subject</label>
+                                <input type="text" id="contact-subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-message">Message</label>
+                                <textarea id="contact-message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-secondary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>About ICITET</h3>
+                    <p>The International Conference on Innovations and Trends in Engineering Technologies (ICITET) is a premier annual event that brings together researchers, academicians, and industry professionals to share knowledge and innovations.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" 
+                               class="nav-link" data-page="home">home</a></li>
+                        <li><a href="#" class="nav-link" data-page="speakers">Speakers</a></li>
+                        <li><a href="#" class="nav-link" data-page="program">Program</a></li>
+                        <li><a href="#" class="nav-link" data-page="registration">Registration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Important Dates</h3>
+                    <ul>
+                        <li>Abstract Submission: 24th April 2025</li>
+                        <li>Acceptance Notification: 26th April 2025</li>
+                        <li>Full paper submission: 3rd  May 2025</li>
+                      
+<li>Early Bird Registration : 5th May 2025</li>
+                      <li>Normal  Registration : 8th May 2025</li>
+                      <li>Conference : 10th - 12th May 2025</li>
+                      
+                      
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+
+        // Page Navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pageDots = document.querySelectorAll('.page-dot');
+        const pages = document.querySelectorAll('.page');
+
+        function showPage(pageId) {
+            // Hide all pages
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update active nav link
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-page') === pageId) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Update active dot
+            pageDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-page') === pageId) {
+                    dot.classList.add('active');
+                }
+            });
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Add click event to nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('data-page');
+                showPage(pageId);
+                
+                // Close mobile menu if open
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+
+        // Add click event to page dots
+        pageDots.forEach(dot => {
+            dot.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('data-page');
+                showPage(pageId);
+            });
+        });
+
+        // Program Tabs
+        const programTabs = document.querySelectorAll('.program-tab');
+        const programContents = document.querySelectorAll('.program-content');
+
+        programTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const day = this.getAttribute('data-day');
+                
+                // Update active tab
+                programTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show corresponding content
+                programContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === day) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Topic Accordions
+        const topicHeaders = document.querySelectorAll('.topic-header');
+        topicHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        });
+
+        // Countdown Timer
+const countdownDate = new Date('May 10, 2025 09:00:00').getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+    
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    
+    if (distance < 0) {
+        clearInterval(countdownTimer);
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+    }
+}
+
+// Update countdown every second
+updateCountdown();
+const countdownTimer = setInterval(updateCountdown, 1000);
+
+
+        // Form submission handlers
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Initialize program tabs
+        document.querySelector('.program-tab.active').click();
+    </script>
+</body>
+</html>
